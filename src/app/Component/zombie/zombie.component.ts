@@ -11,9 +11,18 @@ export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
   position : number = 0;
   
-  varProf : number;
-  profondeur : SafeStyle
+  arrayProfondeurOrdonné : number[] = [
+    0,
+    -300,
+    -500,
+    -1500,
+    -2000    
+  ]
 
+  profondeurRandom : number
+
+  profondeur : SafeStyle
+  indexProf : number
  
 
   @Input() inputZombie : Zombie;
@@ -45,8 +54,19 @@ export class ZombieComponent implements OnInit {
   }
 
   randomVarProf(){
-    const randomIndex = Math.floor(Math.random() * (-1000))
-    this.varProf = randomIndex
-    this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.varProf+"px)");
+    this.profondeurRandom = this.arrayProfondeurOrdonné[Math.floor(Math.random() * (4 - 0)) + 0];
+    switch (this.profondeurRandom) {
+      case this.arrayProfondeurOrdonné[0] : this.indexProf = 4;
+        break;
+      case this.arrayProfondeurOrdonné[1] : this.indexProf = 3;
+        break;
+      case this.arrayProfondeurOrdonné[2] : this.indexProf = 2;
+        break;
+      case this.arrayProfondeurOrdonné[3] : this.indexProf = 1;
+        break;
+      case this.arrayProfondeurOrdonné[4] : this.indexProf = 0;
+        break;
+    }
+    this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
   }
 }
