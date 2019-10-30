@@ -1,7 +1,17 @@
 .zombie {
     height: 20px;
     width: 20px;
-    background-color: black;
-    position: relative;
+    border: white 1px solid;
     left: 0px;
+    position: fixed;
+    bottom: 400px;
+    
+    
+}
+.container{
+    height: 100%;
+}
+
+img {
+    height: 400px;
 }

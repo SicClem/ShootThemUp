@@ -9,16 +9,29 @@ import { GameService } from 'src/app/Shared/game.service';
 })
 export class BoardComponent implements OnInit {
 
-  public zombies : Zombie [];
+  public singleZombie: Zombie[] = [];
+  public zombies: Zombie [];
 
-  constructor(private zombService: GameService ){
-  }
+  constructor(private zombService: GameService ) {}
 
-  public ngOnInit():void {
+  public ngOnInit(): void {
     this.zombService.getZombies().subscribe(
         (response: any) => {
-            this.zombies  =  response.monsters;
+            this.zombies = response.monsters;
         }
     );
-}
+
+    setInterval(() => {
+      this.addSingleZombie();
+    }, 1000);
+  }
+
+  /**
+   * Add a random zombie from the array zombies.
+   */
+  addSingleZombie() {
+    const randomIndex = Math.floor(Math.random() * this.zombies.length);
+    const randomZombie = this.zombies[randomIndex]
+    this.singleZombie.push(randomZombie);
+  }
 }

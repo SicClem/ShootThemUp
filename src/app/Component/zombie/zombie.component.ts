@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Zombie } from 'src/app/Shared/zombie';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-zombie',
@@ -7,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
-  position : number = 0
+  position : number = 0;
+  
+  varProf : number;
+  profondeur : SafeStyle
 
-  constructor() { }
+ 
+
+  @Input() inputZombie : Zombie;
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.interval()
+    this.interval();
+    this.randomVarProf();
   }
 
  interval() {
@@ -20,19 +30,23 @@ export class ZombieComponent implements OnInit {
     this.stopZombie();
     if (this.isArrived === false){
       this.movePosition();
-      console.log(this.position);
       }
     }, 20);
   }
 
   stopZombie() {
-    if (this.position === window.innerWidth - 200) {
+    if (this.position > 1300) {
       this.isArrived = true;
     }
   }
 
   movePosition () {
-    this.position += 10;
+    this.position += 1 * this.inputZombie.level;
   }
 
+  randomVarProf(){
+    const randomIndex = Math.floor(Math.random() * (-1000))
+    this.varProf = randomIndex
+    this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.varProf+"px)");
+  }
 }
