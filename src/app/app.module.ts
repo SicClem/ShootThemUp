@@ -10,6 +10,7 @@ import { LevelComponent } from './Component/level/level.component';
 import { BoardComponent } from './Component/board/board.component';
 import { ZombieComponent } from './Component/zombie/zombie.component';
 import { InnocentComponent } from './Component/innocent/innocent.component';
+import { HttpClientModule } from  '@angular/common/http'
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { InnocentComponent } from './Component/innocent/innocent.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
