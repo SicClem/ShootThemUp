@@ -12,6 +12,7 @@ import { ZombieComponent } from './Component/zombie/zombie.component';
 import { InnocentComponent } from './Component/innocent/innocent.component';
 import { HttpClientModule } from  '@angular/common/http'
 
+
 @NgModule({
   declarations: [
     AppComponent,
