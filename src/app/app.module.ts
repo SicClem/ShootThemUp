@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GamePageComponent } from './game-page/game-page.component';
-import { ScoreBarComponent } from './score-bar/score-bar.component';
-import { ScoreComponent } from './score/score.component';
-import { LevelComponent } from './level/level.component';
-import { BoardComponent } from './board/board.component';
-import { ZombieComponent } from './zombie/zombie.component';
-import { InnocentComponent } from './innocent/innocent.component';
+import { GamePageComponent } from './Pages/game-page/game-page.component';
+import { ScoreBarComponent } from './Component/score-bar/score-bar.component';
+import { ScoreComponent } from './Component/score/score.component';
+import { LevelComponent } from './Component/level/level.component';
+import { BoardComponent } from './Component/board/board.component';
+import { ZombieComponent } from './Component/zombie/zombie.component';
+import { InnocentComponent } from './Component/innocent/innocent.component';
+
 
 @NgModule({
   declarations: [
