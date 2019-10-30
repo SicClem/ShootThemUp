@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-page.component.scss']
 })
 export class GamePageComponent implements OnInit {
+  storm: string;
 
-  constructor() { }
+  constructor() { 
 
-  ngOnInit() {
   }
 
+  flash(){
+    setInterval(() => {
+      this.storm === "none"}, 30000
+    );
+  }
+
+  ngOnInit() {};
 }
