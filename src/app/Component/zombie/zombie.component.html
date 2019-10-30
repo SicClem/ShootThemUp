@@ -1,3 +1,5 @@
-<div [style.left.px]="position" class="zombie">
-
+<div class="container">
+    <div [style.left.px]="position" [style.transform]="profondeur" class="zombie">
+        <img src="{{ inputZombie.picture }}" alt="{{inputZombie.name}}">
+    </div>
 </div>

@@ -1,1 +1,3 @@
-<app-zombie></app-zombie>
+<div class="zombieElt">
+    <app-zombie *ngFor="let z of singleZombie" [inputZombie] = "z"></app-zombie>
+</div>
