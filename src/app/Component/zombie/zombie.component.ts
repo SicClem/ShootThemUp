@@ -38,7 +38,6 @@ export class ZombieComponent implements OnInit {
     this.interval();
     this.randomVarProf();
     this.zombieRandom();
-    this.checkIfArrived()
   };
 
  interval() {
@@ -94,20 +93,6 @@ export class ZombieComponent implements OnInit {
   };
 
 
-
-  checkIfArrived () {
-    setInterval(
-      ()=> {this.hitInnocent(this.inputZombie)}, 1000)
-  };
-
-
-  hitInnocent (inputZombie) {
-    if (this.isHitting === true){
-      setInterval(
-        () => {this.gameservice.lifeLeft -= inputZombie.attack}
-      ,1000);
-    }
-  }
 
 
 }
