@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Zombie } from 'src/app/Shared/zombie';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
@@ -23,12 +23,13 @@ export class ZombieComponent implements OnInit {
 
   profondeur : SafeStyle
   indexProf : number
-  deadZombie : Zombie
+  isAlive : boolean = true
  
 
   @Input() inputZombie : Zombie;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer,
+              private vcRef : ViewContainerRef) { }
 
   ngOnInit() {
     this.interval();
@@ -71,7 +72,7 @@ export class ZombieComponent implements OnInit {
     this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
   }
   shot(){
-    this.inputZombie = this.deadZombie
+    this.isAlive = false
 
   }
 }
