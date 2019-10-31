@@ -10,6 +10,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
   position : number = 0;
+  zombieClass : string;
   
   arrayProfondeurOrdonné : number[] = [
     0,
@@ -34,6 +35,7 @@ export class ZombieComponent implements OnInit {
   ngOnInit() {
     this.interval();
     this.randomVarProf();
+    this.zombieRandom();
   }
 
  interval() {
@@ -73,7 +75,11 @@ export class ZombieComponent implements OnInit {
   }
   shot(){
     this.isAlive = false
+  }
 
+  zombieRandom() {
+    const x = Math.floor(Math.random() * 5) + 1;
+    this.zombieClass = `monstre${x}`;
   }
 }
 
