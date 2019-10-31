@@ -51,8 +51,9 @@ export class ZombieComponent implements OnInit {
 
   stopZombie() {
     if (this.position > 1000) {
-      this.isArrived = true;
-      this.isHitting = true;
+        this.isArrived = true;
+        this.isHitting = true;
+        
     };
   };
 
@@ -60,7 +61,7 @@ export class ZombieComponent implements OnInit {
     this.position += 1 * this.inputZombie.level;
   };
 
-  randomVarProf(){
+  randomVarProf() {
     this.profondeurRandom = this.arrayProfondeurOrdonné[Math.floor(Math.random() * (4 - 0)) + 0];
     switch (this.profondeurRandom) {
       case this.arrayProfondeurOrdonné[0] : this.indexProf = 4;
@@ -79,7 +80,7 @@ export class ZombieComponent implements OnInit {
   shot(inputZombie){
     this.gameservice.singleZombie.delete(inputZombie);
     this.gameservice.score += inputZombie.defense * this.gameservice.level;
-    this.isHitting = false;
+    // this.isHitting = false;
     this.shotAudio.play();
   };
 
@@ -90,19 +91,15 @@ export class ZombieComponent implements OnInit {
 
 
 
-  checkIfArrived () {
-    setInterval(
-      ()=> {this.hitInnocent()}, 1000)
-  };
+  // checkIfArrived () {
+  //   setInterval(
+  //     ()=> {this.hitInnocent()}, 1000)
+  // };
 
 
-  hitInnocent () {
-    if (this.isHitting === true){
-      this.screamAudio.play();
-    //   setInterval(
-    //     () => {this.gameservice.lifeLeft -= inputZombie.attack}
-    //   ,1000);
-    // }
-    }
-  }
+  // hitInnocent () {
+  //   if (this.isHitting === true){
+  //     console.log('ca passe');
+  //   }
+  // }
 }
