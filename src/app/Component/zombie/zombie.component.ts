@@ -13,6 +13,8 @@ export class ZombieComponent implements OnInit {
   isHitting : boolean = false;
   position : number = 0;
   zombieClass : string;
+  shotAudio = new Audio ('/assets/shotGunSound.wav')
+  screamAudio = new Audio ('/assets/SF-femme.mp3')
 
   arrayProfondeurOrdonné : number[] = [
     0,
@@ -49,7 +51,11 @@ export class ZombieComponent implements OnInit {
   };
 
   stopZombie() {
-    if (this.position > 1400) {
+    if (this.position > 800) {
+      this.screamAudio.play()
+
+    }
+    if (this.position > 1000) {
       this.isArrived = true;
       this.isHitting = true;
     };
@@ -79,6 +85,7 @@ export class ZombieComponent implements OnInit {
     this.gameservice.singleZombie.delete(inputZombie);
     this.gameservice.score += inputZombie.defense * this.gameservice.level;
     this.isHitting = false;
+    this.shotAudio.play();
   };
 
   zombieRandom() {
