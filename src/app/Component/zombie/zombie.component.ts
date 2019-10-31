@@ -38,7 +38,6 @@ export class ZombieComponent implements OnInit {
     this.interval();
     this.randomVarProf();
     this.zombieRandom();
-    this.checkIfArrived()
   };
 
  interval() {
@@ -51,12 +50,6 @@ export class ZombieComponent implements OnInit {
   };
 
   stopZombie() {
-    // if (this.position > 700) {
-    //   this.screamAudio.play()
-    // }
-    // if (this.position > 900) {
-    //   this.screamAudio.pause()
-    // }
     if (this.position > 1000) {
       this.isArrived = true;
       this.isHitting = true;
@@ -106,13 +99,10 @@ export class ZombieComponent implements OnInit {
   hitInnocent (inputZombie) {
     if (this.isHitting === true){
       this.screamAudio.play();
-      setInterval(
-        () => {this.gameservice.lifeLeft -= inputZombie.attack}
-      ,1000);
+    //   setInterval(
+    //     () => {this.gameservice.lifeLeft -= inputZombie.attack}
+    //   ,1000);
+    // }
     }
   }
-
-
 }
-
-

@@ -12,6 +12,7 @@ export class GamePageComponent implements OnInit {
   // sound: string = "";
   // soundStorm = new Audio("url('/assets/tonnere.mp3')");
   audio = new Audio ('/assets/tonnerre.wav');
+  audioZombie = new Audio ('/assets/monstre_03.mp3');
 
 
   constructor() { 
@@ -31,6 +32,9 @@ export class GamePageComponent implements OnInit {
       }, 200);
       this.audio.play();
       this.bckgrd = this.bckgrd_flash;
+      setTimeout(() => {
+        this.audioZombie.play();
+      }, 3000);
     }, 30000);
   };
 

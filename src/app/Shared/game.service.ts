@@ -8,12 +8,11 @@ import { Zombie } from './zombie';
 })
 export class GameService {
   singleZombie: Set<Zombie> = new Set<Zombie>();
-  //zombies: Zombie[] = [];
+  zombies: Zombie[] = [];
   level : number = 1;
   zombieIntervalId: any;
   isAlive : boolean = true;
   score : number = 0;
-  lifeLeft : number = 100
 
   private baseUrl = 'https://hackathon-wild-hackoween.herokuapp.com/monsters';
 
