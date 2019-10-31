@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Zombie } from 'src/app/Shared/zombie';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { GameService } from 'src/app/Shared/game.service';
 
 @Component({
   selector: 'app-zombie',
@@ -29,7 +30,8 @@ export class ZombieComponent implements OnInit {
   @Input() inputZombie : Zombie;
 
   constructor(private sanitizer: DomSanitizer,
-              private vcRef : ViewContainerRef) { }
+              private vcRef : ViewContainerRef,
+              private gameservice : GameService ) { }
 
   ngOnInit() {
     this.interval();
@@ -71,8 +73,8 @@ export class ZombieComponent implements OnInit {
     }
     this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
   }
-  shot(){
-    this.isAlive = false
+  shot(inputZombie){
+    this.gameservice.singleZombie.delete(inputZombie)
 
   }
 }

@@ -7,7 +7,7 @@ import { Zombie } from './zombie';
   providedIn: 'root'
 })
 export class GameService {
-  singleZombie: Zombie[] = [];
+  singleZombie: Set<Zombie> = new Set<Zombie>();
   zombies: Zombie[] = [];
   level : number = 1;
   zombieIntervalId: any;
@@ -46,7 +46,8 @@ export class GameService {
   addSingleZombie() {
     const randomIndex = Math.floor(Math.random() * this.zombies.length);
     const randomZombie = this.zombies[randomIndex];
-    this.singleZombie.push(randomZombie);
+    this.singleZombie.add(randomZombie);
+    console.log(this.singleZombie)
   }
 
   setLevel(level :number){
