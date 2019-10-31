@@ -40,7 +40,7 @@ export class ZombieComponent implements OnInit {
     this.zombieRandom();
   }
 
-  randomVarProf(){
+  randomVarProf() {
     this.profondeurRandom = this.arrayProfondeurOrdonné[Math.floor(Math.random() * (4 - 0)) + 0];
     switch (this.profondeurRandom) {
       case this.arrayProfondeurOrdonné[0] : this.indexProf = 4;
