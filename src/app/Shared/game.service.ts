@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Zombie } from './zombie';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GameService {
 
   private baseUrl = 'https://hackathon-wild-hackoween.herokuapp.com/monsters';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.getZombies().subscribe(response => {
       this.zombies.push(...response.monsters);
     });
@@ -28,6 +29,34 @@ export class GameService {
       this.level += 1;
       this.setLevel(this.level);
     }, 30000);
+
+    // Move interval
+    setInterval(()=> {
+      /*this.stopZombie();
+      if (this.isArrived === false) {
+        this.movePosition();
+      }*/
+
+      for(let zombie of this.singleZombie) {
+        this.movePosition(zombie);
+      }
+      }, 20);
+  }
+
+  replay() {
+    this.singleZombie.clear();
+    this.router.navigate(['gamepage']);
+  }
+
+  movePosition(zombie: Zombie) {
+    if (!zombie.position) {
+      zombie.position = 0;
+    }
+
+    if (zombie.position > 1000) {
+      this.router.navigate(['/end'])
+    }
+    zombie.position += 1 * zombie.level;
   }
 
   zombieInterval() {
