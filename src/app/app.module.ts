@@ -16,6 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component'
 import { FormsModule } from '@angular/forms';
 import { ROUTES } from './app.routes';
 import { RouterModule } from '@angular/router';
+import { EndComponent } from './end/end.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { RouterModule } from '@angular/router';
     ZombieComponent,
     InnocentComponent,
     LifeComponent,
-    HomepageComponent
+    HomepageComponent,
+    EndComponent
   ],
   imports: [
     BrowserModule,
