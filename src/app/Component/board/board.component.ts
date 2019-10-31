@@ -9,7 +9,7 @@ import { GameService } from 'src/app/Shared/game.service';
 })
 export class BoardComponent implements OnInit {
 
-  singleZombie: Zombie[] = [];
+  singleZombie: Set<Zombie> = new Set<Zombie>();
   zombies: Zombie [];
 
   constructor(private zombService: GameService) {}
@@ -18,4 +18,5 @@ export class BoardComponent implements OnInit {
     this.zombies = this.zombService.zombies;
     this.singleZombie = this.zombService.singleZombie;
   }
+  
 }
