@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Zombie } from 'src/app/Shared/zombie';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { GameService } from 'src/app/Shared/game.service';
@@ -50,10 +50,6 @@ export class ZombieComponent implements OnInit {
   };
 
   stopZombie() {
-    if (this.position > 800) {
-      this.screamAudio.play()
-
-    }
     if (this.position > 1000) {
       this.isArrived = true;
       this.isHitting = true;
@@ -94,7 +90,19 @@ export class ZombieComponent implements OnInit {
 
 
 
+  checkIfArrived () {
+    setInterval(
+      ()=> {this.hitInnocent()}, 1000)
+  };
 
+
+  hitInnocent () {
+    if (this.isHitting === true){
+      this.screamAudio.play();
+    //   setInterval(
+    //     () => {this.gameservice.lifeLeft -= inputZombie.attack}
+    //   ,1000);
+    // }
+    }
+  }
 }
-
-
