@@ -10,35 +10,34 @@ import { GameService } from 'src/app/Shared/game.service';
 })
 export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
+  isHitting : boolean = false;
   position : number = 0;
   zombieClass : string;
-  
+
   arrayProfondeurOrdonné : number[] = [
     0,
     -300,
     -500,
     -1500,
     -2000    
-  ]
+  ];
 
-  profondeurRandom : number
-
-  profondeur : SafeStyle
-  indexProf : number
-  isAlive : boolean = true
+  profondeurRandom : number;
+  profondeur : SafeStyle;
+  indexProf : number;
  
 
   @Input() inputZombie : Zombie;
 
   constructor(private sanitizer: DomSanitizer,
-              private vcRef : ViewContainerRef,
               private gameservice : GameService ) { }
 
   ngOnInit() {
     this.interval();
     this.randomVarProf();
     this.zombieRandom();
-  }
+    this.checkIfArrived()
+  };
 
  interval() {
    setInterval(()=> {
@@ -47,17 +46,18 @@ export class ZombieComponent implements OnInit {
       this.movePosition();
       }
     }, 20);
-  }
+  };
 
   stopZombie() {
-    if (this.position > 1300) {
+    if (this.position > 1400) {
       this.isArrived = true;
-    }
-  }
+      this.isHitting = true;
+    };
+  };
 
   movePosition () {
     this.position += 1 * this.inputZombie.level;
-  }
+  };
 
   randomVarProf(){
     this.profondeurRandom = this.arrayProfondeurOrdonné[Math.floor(Math.random() * (4 - 0)) + 0];
@@ -72,17 +72,37 @@ export class ZombieComponent implements OnInit {
         break;
       case this.arrayProfondeurOrdonné[4] : this.indexProf = 0;
         break;
-    }
+    };
     this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
-  }
+  };
   shot(inputZombie){
-    this.gameservice.singleZombie.delete(inputZombie)
-  }
+    this.gameservice.singleZombie.delete(inputZombie);
+    this.gameservice.score += inputZombie.defense * this.gameservice.level;
+    this.isHitting = false;
+  };
 
   zombieRandom() {
     const x = Math.floor(Math.random() * 5) + 1;
     this.zombieClass = `monstre${x}`;
+  };
+
+
+
+  checkIfArrived () {
+    setInterval(
+      ()=> {this.hitInnocent(this.inputZombie)}, 1000)
+  };
+
+
+  hitInnocent (inputZombie) {
+    if (this.isHitting === true){
+      setInterval(
+        () => {this.gameservice.lifeLeft -= inputZombie.attack}
+      ,1000);
+    }
   }
+
+
 }
 
 
