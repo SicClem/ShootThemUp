@@ -40,12 +40,13 @@ img {
 
 .monstre2 {
     width: 222px;
-    height: 474px;
+    height: 382px;
     -webkit-animation: zombie2Move 2s infinite; /* Safari 4.0 - 8.0 */
     animation: zombie2Move 2s infinite;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 92px;
 }
 
 @-webkit-keyframes zombie2Move {
@@ -64,12 +65,13 @@ img {
 
 .monstre3 {
     width: 222px;
-    height: 474px;
+    height: 240px;
     -webkit-animation: ghostMove 2s infinite; /* Safari 4.0 - 8.0 */
     animation: ghostMove 2s infinite;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 204px;
 }
 
 @-webkit-keyframes ghostMove {
@@ -88,12 +90,13 @@ img {
 
 .monstre4 {
     width: 222px;
-    height: 474px;
+    height: 415px;
     -webkit-animation: citrouilleMove 2s infinite; /* Safari 4.0 - 8.0 */
     animation: citrouilleMove 2s infinite;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 59px;
 }
 
 @-webkit-keyframes citrouilleMove {
@@ -112,12 +115,13 @@ img {
 
 .monstre5 {
     width: 222px;
-    height: 474px;
+    height: 417px;
     -webkit-animation: momieMove 2s infinite; /* Safari 4.0 - 8.0 */
     animation: momieMove 2s infinite;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 57px;
 }
 
 @-webkit-keyframes momieMove {
