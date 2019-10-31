@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Zombie } from 'src/app/Shared/zombie';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { GameService } from 'src/app/Shared/game.service';
@@ -92,11 +92,11 @@ export class ZombieComponent implements OnInit {
 
   checkIfArrived () {
     setInterval(
-      ()=> {this.hitInnocent(this.inputZombie)}, 1000)
+      ()=> {this.hitInnocent()}, 1000)
   };
 
 
-  hitInnocent (inputZombie) {
+  hitInnocent () {
     if (this.isHitting === true){
       this.screamAudio.play();
     //   setInterval(
