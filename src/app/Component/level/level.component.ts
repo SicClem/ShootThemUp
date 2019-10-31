@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/Shared/game.service';
 
 @Component({
   selector: 'app-level',
@@ -6,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-  level: number = 1;
-
-  constructor() { 
-    setInterval(() => {
-      this.level += 1}, 30000
-    );
-  }
+  constructor(private gameService : GameService) { }
 
   ngOnInit() {
-  }
+  } 
 
 }

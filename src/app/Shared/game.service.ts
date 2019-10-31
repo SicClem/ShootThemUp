@@ -1,17 +1,56 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Zombie } from './zombie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
+  singleZombie: Zombie[] = [];
+  zombies: Zombie[] = [];
+  level : number = 1;
+  zombieIntervalId: any;
 
   private baseUrl = 'https://hackathon-wild-hackoween.herokuapp.com/monsters';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.getZombies().subscribe(response => {
+      this.zombies.push(...response.monsters);
+    });
+
+    this.zombieInterval();
+
+    // Interval pour incrémenter le niveau toutes les 30 secondes
+    setInterval(() => {
+      this.level += 1;
+      this.setLevel(this.level);
+    }, 30000);
+  }
+
+  zombieInterval() {
+    // Interval pour ajouter des zombies au fur et à mesure
+    this.zombieIntervalId = setInterval(() => {
+      this.addSingleZombie();
+    }, 3000 / this.level );
+  }
 
   getZombies(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+   /**
+   * Add a random zombie from the array zombies.
+   */
+  addSingleZombie() {
+    const randomIndex = Math.floor(Math.random() * this.zombies.length);
+    const randomZombie = this.zombies[randomIndex];
+    this.singleZombie.push(randomZombie);
+  }
+
+  setLevel(level :number){
+    this.level = level;
+    clearInterval(this.zombieIntervalId);
+    this.zombieInterval();
   }
 }
