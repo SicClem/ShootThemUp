@@ -11,6 +11,7 @@ import { GameService } from 'src/app/Shared/game.service';
 export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
   position : number = 0;
+  zombieClass : string;
   
   arrayProfondeurOrdonné : number[] = [
     0,
@@ -36,6 +37,7 @@ export class ZombieComponent implements OnInit {
   ngOnInit() {
     this.interval();
     this.randomVarProf();
+    this.zombieRandom();
   }
 
  interval() {
@@ -75,7 +77,11 @@ export class ZombieComponent implements OnInit {
   }
   shot(inputZombie){
     this.gameservice.singleZombie.delete(inputZombie)
+  }
 
+  zombieRandom() {
+    const x = Math.floor(Math.random() * 5) + 1;
+    this.zombieClass = `monstre${x}`;
   }
 }
 
