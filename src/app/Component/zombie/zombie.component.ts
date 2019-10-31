@@ -23,6 +23,7 @@ export class ZombieComponent implements OnInit {
 
   profondeur : SafeStyle
   indexProf : number
+  deadZombie : Zombie
  
 
   @Input() inputZombie : Zombie;
@@ -69,4 +70,10 @@ export class ZombieComponent implements OnInit {
     }
     this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
   }
+  shot(){
+    this.inputZombie = this.deadZombie
+
+  }
 }
+
+
