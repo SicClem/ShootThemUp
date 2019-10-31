@@ -6,3 +6,12 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@font-face {
+    font-family: DeadFontWalking;
+     src: url("/assets/DeadFontWalking.otf") format("opentype")
+}
+
+h2 {
+    font-family: DeadFontWalking;
+}

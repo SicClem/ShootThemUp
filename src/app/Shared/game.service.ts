@@ -12,6 +12,8 @@ export class GameService {
   level : number = 1;
   zombieIntervalId: any;
   isAlive : boolean = true;
+  score : number = 0;
+  lifeLeft : number = 100
 
   private baseUrl = 'https://hackathon-wild-hackoween.herokuapp.com/monsters';
 
@@ -47,17 +49,13 @@ export class GameService {
     const randomIndex = Math.floor(Math.random() * this.zombies.length);
     const randomZombie = this.zombies[randomIndex];
     this.singleZombie.add(randomZombie);
-    console.log(this.singleZombie)
   }
-
+  
   setLevel(level :number){
     this.level = level;
     clearInterval(this.zombieIntervalId);
     this.zombieInterval();
   }
 
-  shot(){
-    this.isAlive = false
 
-  }
 }

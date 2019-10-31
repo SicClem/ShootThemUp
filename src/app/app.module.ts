@@ -10,7 +10,8 @@ import { LevelComponent } from './Component/level/level.component';
 import { BoardComponent } from './Component/board/board.component';
 import { ZombieComponent } from './Component/zombie/zombie.component';
 import { InnocentComponent } from './Component/innocent/innocent.component';
-import { HttpClientModule } from  '@angular/common/http'
+import { HttpClientModule } from  '@angular/common/http';
+import { LifeComponent } from './Component/life/life.component'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from  '@angular/common/http'
     LevelComponent,
     BoardComponent,
     ZombieComponent,
-    InnocentComponent
+    InnocentComponent,
+    LifeComponent
   ],
   imports: [
     BrowserModule,
