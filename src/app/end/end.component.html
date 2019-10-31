@@ -1,0 +1,10 @@
+<div class="homepage">
+        <h1>Game Over</h1>
+        
+        <h2>SCORE : {{ gameservice.score }}</h2>
+        <h2>LEVEL : {{ gameservice.level }}</h2>
+      <button><a style="cursor: pointer;" (click)="homepage != end" class="nav-link" (click)="replay()">Replay</a></button>
+    </div>
+        <router-outlet></router-outlet>
+    
+

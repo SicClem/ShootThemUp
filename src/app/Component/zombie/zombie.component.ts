@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Zombie } from 'src/app/Shared/zombie';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { GameService } from 'src/app/Shared/game.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-zombie',
@@ -11,7 +12,6 @@ import { GameService } from 'src/app/Shared/game.service';
 export class ZombieComponent implements OnInit {
   isArrived : boolean = false;
   isHitting : boolean = false;
-  position : number = 0;
   zombieClass : string;
   shotAudio = new Audio ('/assets/shotGunSound.wav')
   screamAudio = new Audio ('/assets/SF-femme.mp3')
@@ -32,33 +32,13 @@ export class ZombieComponent implements OnInit {
   @Input() inputZombie : Zombie;
 
   constructor(private sanitizer: DomSanitizer,
-              private gameservice : GameService ) { }
+              private gameservice : GameService,
+              private router : Router ) { }
 
   ngOnInit() {
-    this.interval();
     this.randomVarProf();
     this.zombieRandom();
-  };
-
- interval() {
-   setInterval(()=> {
-    this.stopZombie();
-    if (this.isArrived === false){
-      this.movePosition();
-      }
-    }, 20);
-  };
-
-  stopZombie() {
-    if (this.position > 1000) {
-      this.isArrived = true;
-      this.isHitting = true;
-    };
-  };
-
-  movePosition () {
-    this.position += 1 * this.inputZombie.level;
-  };
+  }
 
   randomVarProf(){
     this.profondeurRandom = this.arrayProfondeurOrdonné[Math.floor(Math.random() * (4 - 0)) + 0];
@@ -76,10 +56,12 @@ export class ZombieComponent implements OnInit {
     };
     this.profondeur = this.sanitizer.bypassSecurityTrustStyle("perspective(1000px) translateZ("+this.profondeurRandom+"px)");
   };
-  shot(inputZombie){
-    this.gameservice.singleZombie.delete(inputZombie);
-    this.gameservice.score += inputZombie.defense * this.gameservice.level;
+
+  shot(){
+    this.gameservice.singleZombie.delete(this.inputZombie);
+    this.gameservice.score += this.inputZombie.defense * this.gameservice.level;
     this.isHitting = false;
+    this.isArrived = false;
     this.shotAudio.play();
   };
 
@@ -87,8 +69,6 @@ export class ZombieComponent implements OnInit {
     const x = Math.floor(Math.random() * 5) + 1;
     this.zombieClass = `monstre${x}`;
   };
-
-
 
   checkIfArrived () {
     setInterval(
@@ -98,6 +78,7 @@ export class ZombieComponent implements OnInit {
 
   hitInnocent () {
     if (this.isHitting === true){
+
       this.screamAudio.play();
     //   setInterval(
     //     () => {this.gameservice.lifeLeft -= inputZombie.attack}

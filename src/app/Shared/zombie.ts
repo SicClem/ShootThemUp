@@ -5,5 +5,6 @@ export class Zombie {
     attack: number;
     defense: number;
     picture: string;
-    image : string 
+    image : string;
+    position: number = 0;
 }
