@@ -13,7 +13,6 @@ export class GameService {
   zombieIntervalId: any;
   isAlive : boolean = true;
   score : number = 0;
-  lifeLeft : number = 100
 
   private baseUrl = 'https://hackathon-wild-hackoween.herokuapp.com/monsters';
 
