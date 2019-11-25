@@ -58,6 +58,7 @@ export class ZombieComponent implements OnInit {
   };
 
   shot(){
+    this.inputZombie.position = 0;
     this.gameservice.singleZombie.delete(this.inputZombie);
     this.gameservice.score += this.inputZombie.defense * this.gameservice.level;
     this.isHitting = false;

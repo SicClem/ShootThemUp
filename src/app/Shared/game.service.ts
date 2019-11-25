@@ -53,7 +53,7 @@ export class GameService {
       zombie.position = 0;
     }
 
-    if (zombie.position > 1000) {
+    if (zombie.position > 1200) {
       this.router.navigate(['/end'])
     }
     zombie.position += 1 * zombie.level;
