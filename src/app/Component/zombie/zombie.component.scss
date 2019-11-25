@@ -1,0 +1,136 @@
+.zombie {
+    top:300px;
+    left: 0px;
+    position: fixed;
+   
+    
+    
+}
+.container{
+    height: 100%;
+    margin-left: -250px;
+}
+
+img {
+    height: 400px;
+}
+
+.monstre1 {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: zombieMove 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: zombieMove 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes zombieMove {
+    0%   {background-image: url('/assets/zombie1.png')}
+    33%   {background-image: url('/assets/zombie1.png')}
+    66%   {background-image: url('/assets/zombie2.png')}
+    100% {background-image: url('/assets/zombie2.png')}
+  }
+
+@keyframes zombieMove {
+    0%   {background-image: url('/assets/zombie1.png')}
+    33%   {background-image: url('/assets/zombie1.png')}
+    66%   {background-image: url('/assets/zombie2.png')}
+    100% {background-image: url('/assets/zombie2.png')}
+}
+
+.monstre2 {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: zombie2Move 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: zombie2Move 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes zombie2Move {
+    0%   {background-image: url('/assets/zombie21.png')}
+    33%   {background-image: url('/assets/zombie21.png')}
+    66%   {background-image: url('/assets/zombie22.png')}
+    100% {background-image: url('/assets/zombie22.png')}
+  }
+
+@keyframes zombie2Move {
+    0%   {background-image: url('/assets/zombie21.png')}
+    33%   {background-image: url('/assets/zombie21.png')}
+    66%   {background-image: url('/assets/zombie22.png')}
+    100% {background-image: url('/assets/zombie22.png')}
+}
+
+.monstre3 {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: ghostMove 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: ghostMove 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes ghostMove {
+    0%   {background-image: url('/assets/ghost1.png')}
+    33%   {background-image: url('/assets/ghost1.png')}
+    66%   {background-image: url('/assets/ghost2.png')}
+    100% {background-image: url('/assets/ghost2.png')}
+  }
+
+@keyframes ghostMove {
+    0%   {background-image: url('/assets/ghost1.png')}
+    33%   {background-image: url('/assets/ghost1.png')}
+    66%   {background-image: url('/assets/ghost2.png')}
+    100% {background-image: url('/assets/ghost2.png')}
+}
+
+.monstre4 {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: citrouilleMove 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: citrouilleMove 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes citrouilleMove {
+    0%   {background-image: url('/assets/citrouille1.png')}
+    33%   {background-image: url('/assets/citrouille1.png')}
+    66%   {background-image: url('/assets/citrouille2.png')}
+    100% {background-image: url('/assets/citrouille2.png')}
+  }
+
+@keyframes citrouilleMove {
+    0%   {background-image: url('/assets/citrouille1.png')}
+    33%   {background-image: url('/assets/citrouille1.png')}
+    66%   {background-image: url('/assets/citrouille2.png')}
+    100% {background-image: url('/assets/citrouille2.png')}
+}
+
+.monstre5 {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: momieMove 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: momieMove 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes momieMove {
+    0%   {background-image: url('/assets/momie1.png')}
+    33%   {background-image: url('/assets/momie1.png')}
+    66%   {background-image: url('/assets/momie2.png')}
+    100% {background-image: url('/assets/momie2.png')}
+}
+
+@keyframes momieMove {
+    0%   {background-image: url('/assets/momie1.png')}
+    33%   {background-image: url('/assets/momie1.png')}
+    66%   {background-image: url('/assets/momie2.png')}
+    100% {background-image: url('/assets/momie2.png')}
+}

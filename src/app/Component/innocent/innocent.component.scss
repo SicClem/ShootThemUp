@@ -1,0 +1,31 @@
+.innocent{
+    top:40%;
+    left: 80%;
+    position: fixed;
+    z-index: 2;
+}
+
+
+.innocents {
+    width: 222px;
+    height: 474px;
+    -webkit-animation: innocentsMove 2s infinite; /* Safari 4.0 - 8.0 */
+    animation: innocentsMove 2s infinite;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@-webkit-keyframes innocentsMove {
+    0%   {background-image: url('/assets/innocents1.png')}
+    33%   {background-image: url('/assets/innocents1.png')}
+    66%   {background-image: url('/assets/innocents2.png')}
+    100% {background-image: url('/assets/innocents2.png')}
+  }
+
+@keyframes innocentsMove {
+    0%   {background-image: url('/assets/innocents1.png')}
+    33%   {background-image: url('/assets/innocents1.png')}
+    66%   {background-image: url('/assets/innocents2.png')}
+    100% {background-image: url('/assets/innocents2.png')}
+}

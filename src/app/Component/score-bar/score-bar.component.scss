@@ -1,8 +1,16 @@
 .score-bar {
     width: 100%;
     height: 100px;
-    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+@font-face {
+    font-family: DeadFontWalking;
+     src: url("/assets/DeadFontWalking.otf") format("opentype")
+}
+
+h2 {
+    font-family: DeadFontWalking;
 }

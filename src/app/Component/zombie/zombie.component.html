@@ -1,1 +1,7 @@
-<p>zombie works!</p>
+<div class="container">
+    <div [style.left.px]="inputZombie.position" [style.transform]="profondeur" [style.z-index]="indexProf" class="zombie">
+        <div [class]="zombieClass" (click)="shot()"></div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

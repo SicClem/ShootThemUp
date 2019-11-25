@@ -1,0 +1,49 @@
+h1 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 100px;
+    color: red;
+
+}
+
+h2 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 60px;
+    color: rgb(184, 107, 7)
+
+}
+
+div {
+    background: no-repeat center/100% url("https://files.slack.com/files-pri/T6SG2QGG2-FQ0C8NFHB/endscreen.jpg");
+    width: 100%;
+    height: 100%;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: auto;
+}
+
+button {
+    width: 8%;
+    height: 7%;
+    border-radius: 20px;
+    background-color: rgb(110, 64, 89);
+    border: black;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Metal Mania', cursive;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+button:hover {
+    transform: scale(1.08);
+}

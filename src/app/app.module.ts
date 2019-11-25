@@ -10,6 +10,13 @@ import { LevelComponent } from './Component/level/level.component';
 import { BoardComponent } from './Component/board/board.component';
 import { ZombieComponent } from './Component/zombie/zombie.component';
 import { InnocentComponent } from './Component/innocent/innocent.component';
+import { HttpClientModule } from  '@angular/common/http';
+import { LifeComponent } from './Component/life/life.component';
+import { HomepageComponent } from './homepage/homepage.component'
+import { FormsModule } from '@angular/forms';
+import { ROUTES } from './app.routes';
+import { RouterModule } from '@angular/router';
+import { EndComponent } from './end/end.component';
 
 
 @NgModule({
@@ -21,11 +28,17 @@ import { InnocentComponent } from './Component/innocent/innocent.component';
     LevelComponent,
     BoardComponent,
     ZombieComponent,
-    InnocentComponent
+    InnocentComponent,
+    LifeComponent,
+    HomepageComponent,
+    EndComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]

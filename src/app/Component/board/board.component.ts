@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Zombie } from 'src/app/Shared/zombie';
+import { GameService } from 'src/app/Shared/game.service';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  singleZombie: Set<Zombie> = new Set<Zombie>();
+  zombies: Zombie [];
 
-  ngOnInit() {
+  constructor(private zombService: GameService) {}
+
+  ngOnInit(): void {
+    this.zombies = this.zombService.zombies;
+    this.singleZombie = this.zombService.singleZombie;
   }
-
+  
 }
