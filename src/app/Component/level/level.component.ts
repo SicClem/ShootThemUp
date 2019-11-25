@@ -7,7 +7,7 @@ import { GameService } from 'src/app/Shared/game.service';
   styleUrls: ['./level.component.scss']
 })
 export class LevelComponent implements OnInit {
-  constructor(private gameService : GameService) { }
+  constructor(public gameService : GameService) { }
 
   ngOnInit() {
   } 

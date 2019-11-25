@@ -8,7 +8,7 @@ import { GameService } from 'src/app/Shared/game.service';
 })
 export class ScoreComponent implements OnInit {
 
-  constructor(private gameservice : GameService) { }
+  constructor(public gameservice : GameService) { }
 
   ngOnInit() {
   }

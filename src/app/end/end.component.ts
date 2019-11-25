@@ -12,7 +12,7 @@ export class EndComponent implements OnInit {
 
   end: boolean = true;
 
-  constructor(private gameservice : GameService ) { }
+  constructor(public gameservice : GameService ) { }
 
   ngOnInit() {
   }
